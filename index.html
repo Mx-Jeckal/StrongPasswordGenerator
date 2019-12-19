@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>CyLock 5000</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+    <form class="wrapper">
+        <header>
+            <div class="row">
+                <div class="col-sm-3 col-xs-6"><img class="lockOne" src="./assets/images/lock.png" /></div>
+                <div class="container col-sm-6">
+                    <h1>Cylock 5000's</h1>
+                    <h2>STRONG</h2>
+                    <h3>Password Generator!</h3>
+                </div>
+                <div class="col-sm-3 col-xs-6 "><img class="lockTwo" src="./assets/images/lock.png " /></div>
+
+            </div>
+        </header>
+        <table class="card ">
+            <tbody class="card-header outline">
+                <tr>
+                    <td><input type="checkbox" id="numbers">Numb3rs</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="lowercase">lowerCASE</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="uppercase">UPPERcase</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox" id="special">$Pec!al</input>
+                    </td>
+                </tr>
+                <tr class="card-body ">
+                    <td><input type="text" readonly="true" id="password" placeholder="Your Secure Password" aria-label="Generated Password"></input>
+                    </td>
+                </tr>
+                <tr class="card-footer">
+                    <td><button id="generate" class="btn">Generate Password</button></td>
+                </tr>
+                <tr class="card-footer">
+                    <td><button id="clipboard" class="btn">Copy to Clipboard</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+    <script src="script.js "></script>
+</body>
+
+</html>
