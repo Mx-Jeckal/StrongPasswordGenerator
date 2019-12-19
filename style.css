@@ -30,18 +30,10 @@ header {
 .lockTwo {
     filter: blur(5px);
     width: 120px;
-}
-
-.lockOne {
+    align-self: center;
     display: block;
     margin-right: auto;
-    margin-left: 75px;
-}
-
-.lockTwo {
-    display: block;
     margin-left: auto;
-    margin-right: 75px;
 }
 
 .wrapper {
