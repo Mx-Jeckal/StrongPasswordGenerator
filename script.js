@@ -1,12 +1,66 @@
-var CHARACTER_SETS = [
-    [true, "Numbers", "0123456789"],
-    [true, "Lowercase", "abcdefghijklmnopqrstuvwxyz"],
-    [false, "Uppercase", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
-    [false, "ASCII symbols", "!\"#$%" + String.fromCharCode(38) + "'()*+,-./:;" + String.fromCharCode(60) + "=>?@[\\]^_`{|}~"],
-    [false, "Space", " "],
-];
+// var CHARACTER_SETS = [
+//     [true, "Numbers", "0123456789"],
+//     [true, "Lowercase", "abcdefghijklmnopqrstuvwxyz"],
+//     [false, "Uppercase", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
+//     [false, "Special", "!\"#$%" + String.fromCharCode(38) + "'()*+,-./:;" + String.fromCharCode(60) + "=>?@[\\]^_`{|}~"],
+//     [false, "Space", " "],
+// ];
 
+// var NumbersEl = document.getElementById('numbers')
+// var LowercaseEl = document.getElementById('lowercase')
+// var UppercaseEl = document.getElementById('uppercase')
+// var SpecialEl = document.getElementById('special')
+// var lengthEl = document.getElementById('length')
+var displayPW = document.querySelector('#password');
+var genBtn = document.createElement('button');
+var copyBtn = document.createElement('button');
+document.querySelector("#generate").appendChild(genBtn);
+genBtn.textContent = "Generate Password";
+genBtn.onclick = function() {
+        password_generator;
+        console.log(password_generator());
+        displayPW.textContent = password_generator()
 
+    }
+    // copy to clipboard
+document.querySelector("#copy").appendChild(copyBtn);
+copyBtn.textContent = "Copy to Clipboard";
+
+// function addNumbers() {
+//     for (var i = 0; i < CHARACTER_SETS['Numbers']; i++) {
+//         console.log(CHARACTER_SETS['Numbers'])
+//     }
+
+// };
+// addNumbers(NumbersEl)
+
+function password_generator(len) {
+    event.preventDefault
+    var length = (len) ? (len) : (10);
+    var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
+    var numeric = '0123456789';
+    var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
+    var password = "";
+    var character = "";
+    var crunch = true;
+    while (password.length < length) {
+        entity1 = Math.ceil(string.length * Math.random() * Math.random());
+        entity2 = Math.ceil(numeric.length * Math.random() * Math.random());
+        entity3 = Math.ceil(punctuation.length * Math.random() * Math.random());
+        hold = string.charAt(entity1);
+        hold = (password.length % 2 == 0) ? (hold.toUpperCase()) : (hold);
+        character += hold;
+        character += numeric.charAt(entity2);
+        character += punctuation.charAt(entity3);
+        password = character;
+    }
+    password = password.split('').sort(function() { return 0.5 - Math.random() }).join('');
+    return password.substr(0, len);
+
+};
+// generateBtn.addEventListener("click", console.log("something"))
+
+// var passwordText = password_generator.value
 // // Assignment Code
 // var generateBtn = document.querySelector("#generate");
 

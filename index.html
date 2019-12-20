@@ -12,7 +12,7 @@
 </head>
 
 <body>
-    <form class="wrapper">
+    <div class="wrapper">
         <header>
             <div class="row">
                 <div class="col-sm-3 col-xs-6"><img class="lockOne" src="./assets/images/lock.png" /></div>
@@ -28,33 +28,50 @@
         <table class="card">
             <tbody class="card-header outline">
                 <tr>
-                    <td><input type="checkbox" id="numbers">Numb3rs</td>
+                    <td><input type="checkbox" id="Numbers">Numb3rs</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" id="lowercase">lowerCASE</td>
+                    <td><input type="checkbox" id="Lowercase">lowerCASE</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" id="uppercase">UPPERcase</td>
+                    <td><input type="checkbox" id="Uppercase">UPPERcase</td>
                 </tr>
                 <tr>
-                    <td><input type="checkbox" id="special">$Pec!al</input>
+                    <td><input type="checkbox" id="Special">$Pec!al</input>
+                    </td>
+                    <td>
+                        <hr>
                     </td>
                 </tr>
                 <!-- password length goes here -->
-                <tr class="card-body ">
-                    <td><input type="text" readonly="true" id="password" placeholder="Your Secure Password" aria-label="Generated Password"></input>
+                <tr>
+                    <td>
+                        <form>
+                            <div class="form-group">
+                                <label for="formControlRange">Length</label>
+                                <input type="range" min="8" max="128" value="10" class="form-control-range" id="formControlRange length">
+                            </div>
+                        </form>
                     </td>
                 </tr>
-                <tr class="card-footer">
-                    <td><button id="generate" class="btn">Generate Password</button></td>
+                <tr>
+                    <td>
+                        <div id="password">
+                        </div>
+                    </td>
+                    <!-- <td><input type="text" readonly="true" id="password" aria-label="Generated Password"></input> -->
                 </tr>
-                <tr class="card-footer">
-                    <td><button id="clipboard" class="btn">Copy to Clipboard</button></td>
+                <tr>
+                    <td id="generate"></td>
+                </tr>
+                <tr>
+                    <td id="copy"></td>
                 </tr>
             </tbody>
         </table>
-    </form>
-    <script src="script.js "></script>
+        <!-- <div id="generate"></div>
+    </div> -->
+        <script src="script.js "></script>
 </body>
 
 </html>
