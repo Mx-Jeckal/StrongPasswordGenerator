@@ -1,10 +1,3 @@
-// var CHARACTER_SETS = [
-//     [true, "Numbers", "0123456789"],
-//     [true, "Lowercase", "abcdefghijklmnopqrstuvwxyz"],
-//     [false, "Uppercase", "ABCDEFGHIJKLMNOPQRSTUVWXYZ"],
-//     [false, "Special", "!\"#$%" + String.fromCharCode(38) + "'()*+,-./:;" + String.fromCharCode(60) + "=>?@[\\]^_`{|}~"],
-//     [false, "Space", " "],
-// ];
 var inputIndex = document.getElementsByTagName('input')[0];
 var inputIndex1 = document.getElementsByTagName('input')[1];
 var inputIndex2 = document.getElementsByTagName('input')[2];
@@ -14,25 +7,14 @@ var displayPW = document.querySelector('#password');
 var genBtn = document.createElement("button");
 var copyBtn = document.createElement("button");
 var numeric = ""
-var string = ""; //to upper 
+var string = "";
 var punctuation = '';
 var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
 
 
-// slider
-// var pwLength = parseInt(slider_value);
-
 lengthEl.step = "1"
 lengthEl.max = '128'
 lengthEl.min = '8'
-    // lengthEl.addEventListener("change", function() {
-
-lengthEl.addEventListener("click", (i) => {
-    lengthEl.getAttribute("value", i)
-
-})
-
-// });
 
 function password_generator(len) {
     event.preventDefault
@@ -40,7 +22,6 @@ function password_generator(len) {
     var length = slider_value;
     var password = "";
     var character = "";
-    // var crunch = true;
 
     while (password.length < length) {
         entity1 = Math.ceil(string.length * Math.random() * Math.random());
@@ -76,6 +57,15 @@ genBtn.onclick = function() {
 document.querySelector("#copy").appendChild(copyBtn);
 copyBtn.textContent = "Copy to Clipboard";
 
+copyBtn.onclick = function() {
+    /* Get the text field */
+    var copyText = displayPW.innerHTML;
+    navigator.clipboard.writeText(copyText)
+
+    /* Alert the copied text */
+    alert("Copied the clipboard: " + copyText);
+}
+
 // add numbers to generator
 
 inputIndex.addEventListener("click", function() {
@@ -98,34 +88,3 @@ inputIndex3.addEventListener("click", function() {
         punctuation = "!@#$%^&*()_+~`|}{[]\:;?><,./-="
     } else { punctuation = "" }
 })
-
-
-
-
-// // Write password to the #password input
-// function writePassword() {
-//     var password = generatePassword();
-//     var passwordText = document.querySelector("#password");
-
-//     passwordText.value = password;
-
-//     copyBtn.removeAttribute("disabled");
-//     copyBtn.focus();
-// }
-
-// function copyToClipboard() {
-//     // BONUS
-// }
-
-// // Add event listener to generate button
-// generateBtn.addEventListener("click", writePassword);
-
-// BONUS EVENT LISTENER
-
-// if box is checked add var to charset 
-
-// min length 8 max is 128 step 1
-// need arrays of chars in each set
-//check respective box add chars to randomization
-//either a slider bar or a up/down button for length
-//generate button presents a random password based on user selection
