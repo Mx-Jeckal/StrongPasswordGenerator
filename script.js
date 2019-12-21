@@ -9,26 +9,38 @@ var inputIndex = document.getElementsByTagName('input')[0];
 var inputIndex1 = document.getElementsByTagName('input')[1];
 var inputIndex2 = document.getElementsByTagName('input')[2];
 var inputIndex3 = document.getElementsByTagName('input')[3];
-var NumbersEl = document.querySelector('Numbers');
-var LowercaseEl = document.getElementById('lowercase');
-var UppercaseEl = document.getElementById('uppercase');
-var SpecialEl = document.getElementById('special');
-var lengthEl = document.getElementById('length');
+var lengthEl = document.getElementsByTagName("input")[4]
 var displayPW = document.querySelector('#password');
 var genBtn = document.createElement("button");
 var copyBtn = document.createElement("button");
-
 var numeric = ""
 var string = ""; //to upper 
 var punctuation = '';
-var upper = string.toUpperCase
+var upper = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+
+
+// slider
+// var pwLength = parseInt(slider_value);
+
+lengthEl.step = "1"
+lengthEl.max = '128'
+lengthEl.min = '8'
+    // lengthEl.addEventListener("change", function() {
+
+lengthEl.addEventListener("click", (i) => {
+    lengthEl.getAttribute("value", i)
+
+})
+
+// });
 
 function password_generator(len) {
     event.preventDefault
-    var length = (len) ? (len) : (10);
+    var slider_value = parseInt(lengthEl.value)
+    var length = slider_value;
     var password = "";
     var character = "";
-    var crunch = true;
+    // var crunch = true;
 
     while (password.length < length) {
         entity1 = Math.ceil(string.length * Math.random() * Math.random());
@@ -43,14 +55,22 @@ function password_generator(len) {
     }
     password = password.split('').sort(function() { return 0.5 - Math.random() }).join('');
     return password.substr(0, len);
+    console.log(slider_value);
 
 }
-
+// append generate PW button
 document.querySelector("#generate").appendChild(genBtn);
 genBtn.textContent = "Generate Password";
+
+// click the generate password button to get a result
 genBtn.onclick = function() {
-    displayPW.textContent = password_generator()
+    if (this.textContent == "") {
+        alert('You must select at least one character set')
+    } else { displayPW.textContent = password_generator() }
+
 };
+
+
 
 // copy to clipboard
 document.querySelector("#copy").appendChild(copyBtn);
@@ -69,9 +89,9 @@ inputIndex1.addEventListener("click", function() {
     } else { string = "" }
 });
 inputIndex2.addEventListener("click", function() {
-    if (inputIndex2.checked == true) {
-        numeric = "0123456789"
-    } else { numeric = "" }
+    if (string == false) {
+        string = upper
+    } else { string = "" }
 });
 inputIndex3.addEventListener("click", function() {
     if (inputIndex3.checked == true) {

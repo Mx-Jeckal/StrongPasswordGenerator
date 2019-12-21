@@ -10,6 +10,10 @@
     display: block;
 }
 
+#password {
+    height: 28px;
+}
+
 tr {
     text-align: justify;
 }
