@@ -6,6 +6,9 @@
 //     [false, "Space", " "],
 // ];
 var inputIndex = document.getElementsByTagName('input')[0];
+var inputIndex1 = document.getElementsByTagName('input')[1];
+var inputIndex2 = document.getElementsByTagName('input')[2];
+var inputIndex3 = document.getElementsByTagName('input')[3];
 var NumbersEl = document.querySelector('Numbers');
 var LowercaseEl = document.getElementById('lowercase');
 var UppercaseEl = document.getElementById('uppercase');
@@ -16,20 +19,13 @@ var genBtn = document.createElement("button");
 var copyBtn = document.createElement("button");
 
 var numeric = ""
+var string = ""; //to upper 
+var punctuation = '';
+var upper = string.toUpperCase
 
 function password_generator(len) {
     event.preventDefault
     var length = (len) ? (len) : (10);
-    var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
-
-
-    // if checkmark is clicked then add numbers otherwise exclude
-
-    // NumbersEl.addEventListener("change", function() {
-    //     console.log('suppp')
-    // });
-
-    var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
     var password = "";
     var character = "";
     var crunch = true;
@@ -39,7 +35,7 @@ function password_generator(len) {
         entity2 = Math.ceil(numeric.length * Math.random() * Math.random());
         entity3 = Math.ceil(punctuation.length * Math.random() * Math.random());
         hold = string.charAt(entity1);
-        hold = (password.length % 2 == 0) ? (hold.toUpperCase()) : (hold);
+        hold = (password.length % 2 == 0) ? (hold) : (hold);
         character += hold;
         character += numeric.charAt(entity2);
         character += punctuation.charAt(entity3);
@@ -53,10 +49,7 @@ function password_generator(len) {
 document.querySelector("#generate").appendChild(genBtn);
 genBtn.textContent = "Generate Password";
 genBtn.onclick = function() {
-    password_generator;
-    console.log(password_generator());
     displayPW.textContent = password_generator()
-    console.log(numeric)
 };
 
 // copy to clipboard
@@ -69,6 +62,21 @@ inputIndex.addEventListener("click", function() {
     if (inputIndex.checked == true) {
         numeric = "0123456789"
     } else { numeric = "" }
+});
+inputIndex1.addEventListener("click", function() {
+    if (inputIndex1.checked == true) {
+        string = "abcdefghijklmnopqrstuvwxyz"
+    } else { string = "" }
+});
+inputIndex2.addEventListener("click", function() {
+    if (inputIndex2.checked == true) {
+        numeric = "0123456789"
+    } else { numeric = "" }
+});
+inputIndex3.addEventListener("click", function() {
+    if (inputIndex3.checked == true) {
+        punctuation = "!@#$%^&*()_+~`|}{[]\:;?><,./-="
+    } else { punctuation = "" }
 })
 
 
