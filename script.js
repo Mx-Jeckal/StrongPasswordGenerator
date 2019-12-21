@@ -5,48 +5,35 @@
 //     [false, "Special", "!\"#$%" + String.fromCharCode(38) + "'()*+,-./:;" + String.fromCharCode(60) + "=>?@[\\]^_`{|}~"],
 //     [false, "Space", " "],
 // ];
-
-// var NumbersEl = document.getElementById('numbers')
-// var LowercaseEl = document.getElementById('lowercase')
-// var UppercaseEl = document.getElementById('uppercase')
-// var SpecialEl = document.getElementById('special')
-var lengthEl = document.getElementById('length')
+var inputIndex = document.getElementsByTagName('input')[0];
+var NumbersEl = document.querySelector('Numbers');
+var LowercaseEl = document.getElementById('lowercase');
+var UppercaseEl = document.getElementById('uppercase');
+var SpecialEl = document.getElementById('special');
+var lengthEl = document.getElementById('length');
 var displayPW = document.querySelector('#password');
-var genBtn = document.createElement('button');
-var copyBtn = document.createElement('button');
-document.querySelector("#generate").appendChild(genBtn);
-genBtn.textContent = "Generate Password";
-genBtn.onclick = function() {
-        password_generator;
-        console.log(password_generator());
-        displayPW.textContent = password_generator()
+var genBtn = document.createElement("button");
+var copyBtn = document.createElement("button");
 
-    }
-    // copy to clipboard
-document.querySelector("#copy").appendChild(copyBtn);
-copyBtn.textContent = "Copy to Clipboard";
-
-// lengthEl.ejSlider({
-//     sliderType: ej.SliderType.Range,
-//     values: [30, 60],
-//     width: "500",
-//     showButtons: true
-// });
-lengthEl.ejSlider({
-    SliderType: EJ.SliderType.Range,
-    values: [20, 50],
-    width: "150",
-})
+var numeric = ""
 
 function password_generator(len) {
     event.preventDefault
     var length = (len) ? (len) : (10);
     var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
-    var numeric = '0123456789';
+
+
+    // if checkmark is clicked then add numbers otherwise exclude
+
+    // NumbersEl.addEventListener("change", function() {
+    //     console.log('suppp')
+    // });
+
     var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
-    var password = "hey";
+    var password = "";
     var character = "";
     var crunch = true;
+
     while (password.length < length) {
         entity1 = Math.ceil(string.length * Math.random() * Math.random());
         entity2 = Math.ceil(numeric.length * Math.random() * Math.random());
@@ -61,12 +48,30 @@ function password_generator(len) {
     password = password.split('').sort(function() { return 0.5 - Math.random() }).join('');
     return password.substr(0, len);
 
-};
-// generateBtn.addEventListener("click", console.log("something"))
+}
 
-// var passwordText = password_generator.value
-// // Assignment Code
-// var generateBtn = document.querySelector("#generate");
+document.querySelector("#generate").appendChild(genBtn);
+genBtn.textContent = "Generate Password";
+genBtn.onclick = function() {
+    password_generator;
+    console.log(password_generator());
+    displayPW.textContent = password_generator()
+    console.log(numeric)
+};
+
+// copy to clipboard
+document.querySelector("#copy").appendChild(copyBtn);
+copyBtn.textContent = "Copy to Clipboard";
+
+// add numbers to generator
+
+inputIndex.addEventListener("click", function() {
+    if (inputIndex.checked == true) {
+        numeric = "0123456789"
+    } else { numeric = "" }
+})
+
+
 
 
 // // Write password to the #password input
