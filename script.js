@@ -10,7 +10,7 @@
 // var LowercaseEl = document.getElementById('lowercase')
 // var UppercaseEl = document.getElementById('uppercase')
 // var SpecialEl = document.getElementById('special')
-// var lengthEl = document.getElementById('length')
+var lengthEl = document.getElementById('length')
 var displayPW = document.querySelector('#password');
 var genBtn = document.createElement('button');
 var copyBtn = document.createElement('button');
@@ -26,13 +26,17 @@ genBtn.onclick = function() {
 document.querySelector("#copy").appendChild(copyBtn);
 copyBtn.textContent = "Copy to Clipboard";
 
-// function addNumbers() {
-//     for (var i = 0; i < CHARACTER_SETS['Numbers']; i++) {
-//         console.log(CHARACTER_SETS['Numbers'])
-//     }
-
-// };
-// addNumbers(NumbersEl)
+// lengthEl.ejSlider({
+//     sliderType: ej.SliderType.Range,
+//     values: [30, 60],
+//     width: "500",
+//     showButtons: true
+// });
+lengthEl.ejSlider({
+    SliderType: EJ.SliderType.Range,
+    values: [20, 50],
+    width: "150",
+})
 
 function password_generator(len) {
     event.preventDefault
@@ -40,7 +44,7 @@ function password_generator(len) {
     var string = "abcdefghijklmnopqrstuvwxyz"; //to upper 
     var numeric = '0123456789';
     var punctuation = '!@#$%^&*()_+~`|}{[]\:;?><,./-=';
-    var password = "";
+    var password = "hey";
     var character = "";
     var crunch = true;
     while (password.length < length) {
